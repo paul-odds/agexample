@@ -1,0 +1,29 @@
+<div class="profile-form">
+  <form autocomplete="off" [formGroup]="form" (ngSubmit)="submit()">
+    <h1>Profile:</h1>
+    <ng-container *ngFor="let _ of profileForms.controls; let index = index">
+      <app-profile-form
+      formName="profiles"
+      [indexChildForm]="index"
+      (deleteProfileEvent)="deleteProfile($event)"></app-profile-form>
+      <br/>
+    </ng-container>
+    <div>
+      <button type="button" (click)="addProfile()">
+        Add Profile
+      </button>
+    </div>
+    <br/>
+    <div>
+      <button type="submit" [disabled]="form.invalid">
+        Submit
+      </button>
+    </div>
+  </form>
+</div>
+<br/>
+<button (click)="openModal()">Open modal</button>
+
+<ng-template #modalTemplate>
+  <div>This is our custom modal content</div>
+</ng-template>

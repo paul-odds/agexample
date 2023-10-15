@@ -1,0 +1,18 @@
+<div>
+  <label [for]="fieldName">
+    <span>
+      {{ label }}
+    </span>
+    <app-field-errors [formControl]="formControl">
+    </app-field-errors>
+  </label>
+  <div>
+    <input type="text"
+    [id]="fieldName"
+    [name]="fieldName"
+    [value]="value"
+    [disabled]="isDisabled"
+    (input)="onChange($event)"
+    (blur)="touched()">
+  </div>
+</div>

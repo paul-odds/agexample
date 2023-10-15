@@ -1,0 +1,30 @@
+<form autocomplete="off" [formGroup]="childForm">
+  <div>
+    <app-input-text
+      label="Name"
+      fieldName="name"
+      [parentForm]="childForm"
+      formControlName="name">
+    </app-input-text>
+    <br/>
+    <app-input-text
+      label="Last Name"
+      fieldName="lastName"
+      [parentForm]="childForm"
+      formControlName="lastName">
+    </app-input-text>
+    <br/>
+    <app-input-password
+      label="OTP"
+      fieldName="otp"
+      [parentForm]="childForm"
+      formControlName="otp">
+    </app-input-password>
+  </div>
+  <br/>
+  <div>
+    <button type="button" (click)="deleteProfile(indexChildForm)">
+      Delete Profile
+    </button>
+  </div>
+</form>
