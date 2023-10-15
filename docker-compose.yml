@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  fe:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 80:80
+    container_name: agexample
