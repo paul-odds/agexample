@@ -9,6 +9,4 @@ import { FormControl } from '@angular/forms';
 export class FieldErrorsComponent {
   @Input()
   formControl!: FormControl;
-
-  constructor() {}
 }

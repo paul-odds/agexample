@@ -14,12 +14,12 @@ export class ModalComponent {
 
   constructor(private elementRef: ElementRef) {}
 
-  close(): void {
+  onClose(): void {
     this.elementRef.nativeElement.remove();
     this.closeEvent.emit();
   }
 
-  submit(): void {
+  onSubmit(): void {
     this.elementRef.nativeElement.remove();
     this.submitEvent.emit();
   }

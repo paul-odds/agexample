@@ -1,4 +1,4 @@
-import { Component, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewContainerRef } from '@angular/core';
 import { FormArray, FormGroup } from '@angular/forms';
 import { ModalService } from '../shared/modal/services/modal.service';
 import { ProfileFormComponent } from './profile-form/profile-form.component';
@@ -8,8 +8,11 @@ import { ProfileFormComponent } from './profile-form/profile-form.component';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss']
 })
-export class ProfileComponent {
-  @ViewChild('modalTemplate', { static: true }) modalTemplate!: TemplateRef<any>;
+export class ProfileComponent implements OnInit {
+  // eslint-disable-next-line  @typescript-eslint/no-explicit-any
+  // @ViewChild('modalTemplate', { static: true }) modalTemplate!: TemplateRef<any>;
+  // eslint-disable-next-line  @typescript-eslint/no-explicit-any
+  // @ViewChild('modalTemplates', { static: true }) modalTemplates!: TemplateRef<any>;
 
   form!: FormGroup;
 
@@ -19,7 +22,7 @@ export class ProfileComponent {
 
   constructor(
     private modalService: ModalService,
-    private viewContainerRef: ViewContainerRef
+    private viewContainerRef: ViewContainerRef,
   ) {
     this.modalService.viewContainerRef = this.viewContainerRef;
   }
@@ -34,13 +37,17 @@ export class ProfileComponent {
         ProfileFormComponent.createForm()
       ]),
     });
+
+    this.form.valueChanges.subscribe((v: FormGroup) => {
+      console.log(v);
+    });
   }
 
   submit(): void {
     console.log(this.form.getRawValue());
-    if (this.form.valid) {
+    // if (this.form.valid) {
 
-    }
+    // }
   }
 
   addProfile(): void {
@@ -51,9 +58,19 @@ export class ProfileComponent {
     this.profileForms.removeAt(index);
   }
 
-  openModal(): void {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  openModal(content: TemplateRef<any>): void {
     this.modalService
-      .open(this.modalTemplate, { size: 'lg', title: 'Title' })
+      .open(content, { size: 'lg', title: 'Title' })
+      .subscribe((action) => {
+        console.log('modalAction', action);
+      });
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  openModals(content: TemplateRef<any>): void {
+    this.modalService
+      .open(content, { size: 'lg', title: 'Title 2' })
       .subscribe((action) => {
         console.log('modalAction', action);
       });

@@ -1,14 +1,14 @@
 <div class="modal {{ size }}">
   <div class="modal-header">
     {{ title }}
-    <span class="modal-close" (click)="close()">✕</span>
+    <span class="modal-close" aria-hidden="true" (click)="onClose()">✕</span>
   </div>
   <div class="modal-content">
     <ng-content></ng-content>
   </div>
   <div class="modal-footer">
-    <button (click)="submit()">Submit</button>
+    <button (click)="onSubmit()">Submit</button>
   </div>
 </div>
 
-<div class="modal-backdrop" (click)="close()"></div>
+<div class="modal-backdrop" aria-hidden="true" (click)="onClose()"></div>

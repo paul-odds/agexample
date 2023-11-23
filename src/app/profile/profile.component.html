@@ -22,8 +22,15 @@
   </form>
 </div>
 <br/>
-<button (click)="openModal()">Open modal</button>
+<button (click)="openModal(modalTemplate)">Open modal</button>
+<br/>
+<br/>
+<button (click)="openModals(modalTemplates)">Open modal 2</button>
 
 <ng-template #modalTemplate>
   <div>This is our custom modal content</div>
+</ng-template>
+
+<ng-template #modalTemplates>
+  <div>This is our custom modal content 2</div>
 </ng-template>

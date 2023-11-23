@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'agexample';
+
+  constructor(private router: Router) {
+  }
+
+  onHomeMenu(): void {
+    this.router.navigateByUrl('/');
+  }
+
+  onProfileMenu(): void {
+    this.router.navigateByUrl('/profile');
+  }
 }

@@ -29,24 +29,12 @@ export class InputPasswordComponent implements ControlValueAccessor {
     return this.parentForm.get(this.fieldName) as FormControl;
   }
 
-  fieldType: string = 'password';
+  fieldType = 'password';
 
   value!: string;
   changed!: (value: string) => void;
   touched!: () => void;
   isDisabled!: boolean;
-
-  // constructor(@Inject(Injector) private injector: Injector) {
-  // }
-
-  ngOnInit(): void {
-    // this.setComponentControl();
-  }
-
-  // setComponentControl(): void {
-  //   const injectedControl = this.injector.get(NgControl);
-  //   this.formControl = this.injector.get(FormGroupDirective).getControl(injectedControl as FormControlName);
-  // }
 
   writeValue(value: string): void {
     this.value = value;
@@ -57,10 +45,12 @@ export class InputPasswordComponent implements ControlValueAccessor {
     this.changed(value);
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   registerOnChange(fn: any): void {
     this.changed = fn;
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   registerOnTouched(fn: any): void {
     this.touched = fn;
   }

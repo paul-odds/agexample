@@ -13,9 +13,7 @@ import { ModalComponent } from '../modal.component';
 
 export type Content<T> = string | TemplateRef<T> | Type<T>;
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ModalService {
   viewContainerRef!: ViewContainerRef;
 
@@ -26,6 +24,7 @@ export class ModalService {
     @Inject(DOCUMENT) private document: Document,
   ) {}
 
+  // eslint-disable-next-line  @typescript-eslint/no-explicit-any
   open(content: TemplateRef<any> | string, options?: { size?: string; title?: string }): Observable<string> {
     const modalComponent = this.openComponent(content);
     modalComponent.instance.size = options?.size;

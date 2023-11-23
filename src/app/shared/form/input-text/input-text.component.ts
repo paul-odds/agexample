@@ -37,9 +37,9 @@ export class InputTextComponent implements ControlValueAccessor {
   // constructor(@Inject(Injector) private injector: Injector) {
   // }
 
-  ngOnInit(): void {
+  // ngOnInit(): void {
     // this.setComponentControl();
-  }
+  // }
 
   // setComponentControl(): void {
   //   const injectedControl = this.injector.get(NgControl);
@@ -55,10 +55,12 @@ export class InputTextComponent implements ControlValueAccessor {
     this.changed(value);
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   registerOnChange(fn: any): void {
     this.changed = fn;
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   registerOnTouched(fn: any): void {
     this.touched = fn;
   }
