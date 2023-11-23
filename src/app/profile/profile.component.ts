@@ -2,6 +2,8 @@ import { Component, OnInit, TemplateRef, ViewContainerRef } from '@angular/core'
 import { FormArray, FormGroup } from '@angular/forms';
 import { ModalService } from '../shared/modal/services/modal.service';
 import { ProfileFormComponent } from './profile-form/profile-form.component';
+import { ModalErrorService } from '../shared/modal-error/modal-error.service';
+import { ErrorContent } from '../shared/modal-error/model/error-content.model';
 
 @Component({
   selector: 'app-profile',
@@ -23,6 +25,7 @@ export class ProfileComponent implements OnInit {
   constructor(
     private modalService: ModalService,
     private viewContainerRef: ViewContainerRef,
+    private modalErrorService: ModalErrorService
   ) {
     this.modalService.viewContainerRef = this.viewContainerRef;
   }
@@ -56,6 +59,10 @@ export class ProfileComponent implements OnInit {
 
   deleteProfile(index: number): void {
     this.profileForms.removeAt(index);
+  }
+
+  openModalError(): void {
+    this.modalErrorService.open(new ErrorContent());
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

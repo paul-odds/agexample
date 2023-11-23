@@ -8,6 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ModalModule } from '../shared/modal/modal.module';
 import { InputPasswordModule } from '../shared/form/input-password/input-password.module';
 import { InputTextModule } from '../shared/form/input-text/input-text.module';
+import { ModalErrorModule } from '../shared/modal-error/modal-error.module';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { InputTextModule } from '../shared/form/input-text/input-text.module';
     ReactiveFormsModule,
     InputTextModule,
     InputPasswordModule,
-    ModalModule
+    ModalModule,
+    ModalErrorModule
   ]
 })
 export class ProfileModule { }
