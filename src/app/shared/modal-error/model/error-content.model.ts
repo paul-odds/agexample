@@ -2,6 +2,7 @@ interface IErrorContent {
   title: string;
   messages: string[];
 }
+
 export class ErrorContent implements IErrorContent {
   title: string;
   messages: string[];
