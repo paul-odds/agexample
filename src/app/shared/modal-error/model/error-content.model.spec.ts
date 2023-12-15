@@ -18,4 +18,11 @@ describe('ErrorContent', () => {
     expect(errorContent.title).toEqual(data.title);
     expect(errorContent.messages).toEqual(data.messages);
   });
+
+  test('should create an instance with zero value when new instance with undefined', () => {
+    const errorContent = new ErrorContent({});
+
+    expect(errorContent.title).toEqual('');
+    expect(errorContent.messages).toEqual([]);
+  });
 });
